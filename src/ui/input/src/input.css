@@ -1,0 +1,80 @@
+:root {
+  --decoration-line-height: .4rem;
+  --font-size: 1rem;
+  --form-control-padding: .4rem;
+  --main-color: #4b575e;
+}
+
+
+.control {
+  font-size: var(--font-size);
+  opacity: 1;
+}
+
+.form-control {
+  display: inline-flex;
+  padding: var(--form-control-padding);
+  position: relative;
+}
+
+.form-control:hover > .decoration-line {
+  filter: alpha(opacity=50);
+  opacity: 1;
+}
+
+.form-control:hover > .decoration-line::after {
+  animation: slideGradient 1.5s ease-in-out infinite;
+}
+
+.form-control > .decoration-line {
+  border-bottom: none;
+  height: calc(var(--font-size) + var(--decoration-line-height));
+  opacity: 0;
+  position: absolute;
+  top: calc(0 - var(--decoration-line-height) / 2);
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -ms-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+  width: calc(100% - 2 * var(--form-control-padding));
+}
+
+.form-control > .decoration-line::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: .15rem;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--main-color) 50%, 
+    transparent 100%);
+  background-size: 200% 100%;
+  background-position: -200% 0;
+}
+
+@keyframes slideGradient {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.form-control > .control {
+  background-color: transparent;
+  border: none;
+  box-sizing: border-box;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  height: 100%;
+  margin: 0;
+  opacity: 1;
+  padding: 0;
+  position: relative;
+  width: 100%;
+}

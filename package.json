@@ -1,0 +1,37 @@
+{
+  "name": "easy-forms",
+  "version": "0.0.0",
+  "description": "formularies but easy",
+  "main": "index.html",
+  "type": "module",
+  "scripts": {
+    "build": "tsc && vite build",
+    "build-storybook": "storybook build",
+    "dev": "vite",
+    "preview": "vite preview",
+    "start": "npm run storybook",
+    "storybook": "storybook dev -p 6006",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mimoriarty/easy-forms.git"
+  },
+  "keywords": [
+    "html",
+    "form",
+    "components"
+  ],
+  "author": "Mickey Moriarty",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mimoriarty/easy-forms/issues"
+  },
+  "homepage": "https://github.com/mimoriarty/easy-forms#readme",
+  "devDependencies": {
+    "@storybook/html-vite": "^9.1.7",
+    "storybook": "^9.1.7",
+    "typescript": "~5.8.3",
+    "vite": "^7.1.7"
+  }
+}
