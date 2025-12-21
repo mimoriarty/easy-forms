@@ -2,23 +2,27 @@ import type { Meta, StoryObj } from '@storybook/html-vite';
 
 import { expect, userEvent, within } from 'storybook/test';
 
-import { createInput } from './Input';
+import type { InputProps } from './Input';
+import { Input } from './Input';
 
 const meta = {
   title: 'UI/Input',
-  render: () => createInput(),
-  parameters: {
-    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout
-    layout: 'fullscreen',
-  },
-} satisfies Meta;
+  render: (args: InputProps) => new Input(args).render(),
+  args: {
+    placeholder: 'Placeholder',
+    style: {
+      fontSize: '2rem',
+      fontFamily: 'Arial',
+    },
+    classes: 'light'
+  }
+} satisfies Meta<InputProps>;
 
 export default meta;
-
-export const LoggedOut: StoryObj = {};
+type Story = StoryObj<InputProps>;
 
 // More on component testing: https://storybook.js.org/docs/writing-tests/interaction-testing
-export const LoggedIn: StoryObj = {
+export const Default: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const input = canvas.getByRole('input', { name: /name/i });
